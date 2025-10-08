@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Headsets - Discover the Future of Virtual Reality</title>
+    <meta name="description" content="Premium VR headsets, controllers, and accessories. Experience the future of virtual reality with Apple Vision Pro, PlayStation VR2, Meta Quest 3 and more.">
+    <meta name="keywords" content="VR headsets, virtual reality, Apple Vision Pro, PlayStation VR2, Meta Quest 3, VR controllers, VR accessories">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300d4ff'/%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grad)' rx='20'/%3E%3Ctext x='50' y='60' font-family='Arial' font-size='40' font-weight='bold' text-anchor='middle' fill='white'%3EVR%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen (Simple, Responsive) -->
+    <div id="loading-screen" style="display: flex; align-items: center; justify-content: center; position: fixed; inset: 0; background: #fff; z-index: 2000;">
+        <div style="text-align: center;">
+            <div style="margin-bottom: 1rem;">
+                <span style="display: inline-block; width: 40px; height: 40px; border: 4px solid #8b5cf6; border-top: 4px solid #00d4ff; border-radius: 50%; animation: spin 1s linear infinite;"></span>
+            </div>
+            <p style="font-size: 1.1rem; color: #444;">Loading VR Experience...</p>
+        </div>
+    </div>
+    <style>
+        @keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+        @media (max-width: 600px) {
+            #loading-screen p { font-size: 1rem; }
+        }
+    </style>
+
+    <!-- Header (Simplified, Responsive) -->
+    <header class="header" style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100;">
+        <!-- Top Bar -->
+        <div class="top-bar" style="background: #18181b; color: #fff; font-size: 0.95rem;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0.4rem 1rem; display: flex; justify-content: space-between; align-items: center;">
+                <span class="delivery-info" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-truck"></i>
+                    <span>Free delivery on orders over $299</span>
+                </span>
+                <div class="top-bar-right" style="display: flex; align-items: center; gap: 1.2rem;">
+                    <a href="#" class="top-link" style="color: #fff; text-decoration: none;">Help</a>
+                    <a href="#" class="top-link" style="color: #fff; text-decoration: none;">Track Order</a>
+                    <a href="#" class="top-link" style="color: #fff; text-decoration: none;">Returns</a>
+                    <span class="language-selector" style="display: flex; align-items: center; gap: 0.3rem;">
+                        <i class="fas fa-globe"></i>
+                        <span>EN</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav" style="background: #fff;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0.7rem 1rem;">
+                <div class="nav-content" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <!-- Logo -->
+                    <a href="#" class="nav-brand" style="display: flex; align-items: center; gap: 0.7rem; text-decoration: none;">
+                        <span style="display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%); border-radius: 50%;">
+                            <i class="fas fa-vr-cardboard" style="color: #fff; font-size: 1.3rem;"></i>
+                        </span>
+                        <span style="font-weight: 700; font-size: 1.2rem; color: #18181b;">VR Headsets</span>
+                    </a>
+
+                    <!-- Search Bar -->
+                    <form class="search-container" style="flex: 1 1 250px; max-width: 400px; display: flex; align-items: center; gap: 0.5rem;">
+                        <select class="search-category" style="padding: 0.4rem 0.6rem; border-radius: 5px; border: 1px solid #e5e7eb; background: #f3f4f6;">
+                            <option value="all">All</option>
+                            <option value="headsets">Headsets</option>
+                            <option value="controllers">Controllers</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="games">Games</option>
+                        </select>
+                        <input type="text" class="search-input" placeholder="Search VR products..." style="flex: 1; padding: 0.4rem 0.7rem; border-radius: 5px; border: 1px solid #e5e7eb;">
+                        <button class="search-btn" type="submit" style="background: #8b5cf6; color: #fff; border: none; border-radius: 5px; padding: 0.45rem 0.9rem; cursor: pointer;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+
+                    <!-- Right Actions -->
+                    <div class="nav-actions" style="display: flex; align-items: center; gap: 0.7rem;">
+                        <button class="nav-btn wishlist-btn" style="background: none; border: none; color: #8b5cf6; display: flex; align-items: center; gap: 0.3rem; cursor: pointer; font-size: 1rem;">
+                            <i class="fas fa-heart"></i>
+                            <span class="wishlist-count" style="background: #f3f4f6; color: #8b5cf6; border-radius: 50%; padding: 0 0.5em; font-size: 0.95em;">0</span>
+                        </button>
+                        <button class="nav-btn account-btn" style="background: none; border: none; color: #18181b; display: flex; align-items: center; gap: 0.3rem; cursor: pointer; font-size: 1rem;">
+                            <i class="fas fa-user"></i>
+                        </button>
+                         <div class="nav-item" style="position: relative;">
+                             <button class="nav-btn cart-btn" style="background: none; border: none; color: #18181b; display: flex; align-items: center; gap: 0.3rem; cursor: pointer; font-size: 1rem;">
+                                 <i class="fas fa-shopping-cart"></i>
+                                 <span class="cart-count" style="background: #f3f4f6; color: #8b5cf6; border-radius: 50%; padding: 0 0.5em; font-size: 0.95em;">0</span>
+                             </button>
+                             <!-- Cart Dropdown -->
+                             <div class="cart-dropdown" style="position: absolute; top: 100%; right: 0; background: white; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 300px; z-index: 1000; display: none; padding: 1rem;">
+                                 <div class="cart-header" style="border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                                     <h4 style="margin: 0; color: #18181b;">Shopping Cart</h4>
+                                 </div>
+                                 <div class="cart-items" id="cartItems">
+                                     <div class="empty-cart" style="text-align: center; color: #6b7280; padding: 2rem 0;">
+                                         <i class="fas fa-shopping-cart" style="font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.3;"></i>
+                                         <p style="margin: 0;">Your cart is empty</p>
+                                     </div>
+                                 </div>
+                                 <div class="cart-footer" style="border-top: 1px solid #e5e7eb; padding-top: 1rem; margin-top: 1rem; display: none;">
+                                     <div class="cart-total" style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-weight: 600;">
+                                         <span>Total:</span>
+                                         <span class="cart-total-price">$0.00</span>
+                                     </div>
+                                     <button class="checkout-btn" style="width: 100%; background: #8b5cf6; color: white; border: none; padding: 0.75rem; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                                         Proceed to Checkout
+                                     </button>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+     <style>
+         @media (max-width: 900px) {
+             .nav-content { flex-direction: column; align-items: stretch !important; gap: 0.5rem !important; }
+             .search-container { max-width: 100% !important; }
+         }
+         @media (max-width: 600px) {
+             .top-bar { display: none !important; }
+             .main-nav .container { padding: 0.3rem 0.5rem !important; }
+             .nav-brand span:last-child { font-size: 1rem !important; }
+             .nav-actions { gap: 0.3rem !important; }
+             .search-container select, .search-container input { font-size: 0.95rem !important; }
+             .search-container { gap: 0.3rem !important; }
+             .search-container select { padding: 0.3rem 0.4rem !important; }
+             .search-container input { padding: 0.3rem 0.5rem !important; }
+             .search-btn { padding: 0.35rem 0.7rem !important; }
+         }
+         @media (max-width: 480px) {
+             .main-nav .container { padding: 0.2rem 0.4rem !important; }
+             .nav-brand { gap: 0.4rem !important; }
+             .nav-brand span:first-child { width: 30px !important; height: 30px !important; }
+             .nav-brand span:last-child { font-size: 0.9rem !important; }
+             .nav-actions { gap: 0.2rem !important; }
+             .nav-actions button { font-size: 0.9rem !important; }
+         }
+     </style>
+
+                    <!-- Mobile Menu Toggle -->
+                    <div class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Category Navigation -->
+        <nav class="category-nav">
+            <div class="container">
+                <div class="category-menu">
+                    <div class="category-item">
+                        <button class="category-btn">
+                            <i class="fas fa-bars"></i>
+                            <span>All Categories</span>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-column">
+                                    <h4>VR Headsets</h4>
+                                    <a href="#" class="mega-link">Apple Vision Pro</a>
+                                    <a href="#" class="mega-link">PlayStation VR2</a>
+                                    <a href="#" class="mega-link">Meta Quest 3</a>
+                                    <a href="#" class="mega-link">HTC Vive</a>
+                                    <a href="#" class="mega-link">Valve Index</a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>Controllers</h4>
+                                    <a href="#" class="mega-link">Touch Controllers</a>
+                                    <a href="#" class="mega-link">Sense Controllers</a>
+                                    <a href="#" class="mega-link">Index Controllers</a>
+                                    <a href="#" class="mega-link">Wand Controllers</a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>Accessories</h4>
+                                    <a href="#" class="mega-link">VR Stands</a>
+                                    <a href="#" class="mega-link">Play Mats</a>
+                                    <a href="#" class="mega-link">Lens Protectors</a>
+                                    <a href="#" class="mega-link">Cables & Chargers</a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>VR Games</h4>
+                                    <a href="#" class="mega-link">Action Games</a>
+                                    <a href="#" class="mega-link">Puzzle Games</a>
+                                    <a href="#" class="mega-link">Simulation</a>
+                                    <a href="#" class="mega-link">Sports Games</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#products" class="category-link">Best Sellers</a>
+                    <a href="#" class="category-link">New Arrivals</a>
+                    <a href="#" class="category-link">Deals</a>
+                    <a href="#" class="category-link">VR Games</a>
+                    <a href="#" class="category-link">Accessories</a>
+                    <a href="#" class="category-link">Support</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-bg-image"></div>
+            <div class="network-overlay"></div>
+            <div class="floating-particles"></div>
+            <div class="vr-grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Discover our line of</span>
+                    <span class="title-line highlight">VR Headsets</span>
+                </h1>
+                <p class="hero-description">
+                    Experience the future of virtual reality with our cutting-edge headsets. 
+                    Immerse yourself in worlds beyond imagination with crystal-clear visuals 
+                    and seamless performance.
+                </p>
+                <button class="cta-button">
+                    <span>VIEW HEADSETS</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="vr-user-container">
+                    <div class="vr-user">
+                        <div class="vr-headset"></div>
+                        <div class="vr-hands">
+                            <div class="hand left"></div>
+                            <div class="hand right"></div>
+                        </div>
+                        <div class="interaction-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Best Sellers Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Best Sellers</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-product="apple">
+                    <div class="product-image">
+                        <div class="product-tag new">New</div>
+                        <div class="product-img apple-headset">
+                            <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=400&h=400&fit=crop&crop=center&q=80" 
+                                 alt="Apple Vision Pro" 
+                                 class="product-image-main"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="vr-headset-design fallback-design" style="display: none;">
+                                <div class="vr-lens-left"></div>
+                                <div class="vr-lens-right"></div>
+                                <div class="vr-strap"></div>
+                                <div class="vr-frame"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Headsets, Apple</span>
+                        <h3 class="product-name">Apple Vision Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">US$ 450.00</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="playstation">
+                    <div class="product-image">
+                        <div class="product-tag new">New</div>
+                        <div class="product-img playstation-headset">
+                            <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&q=80" 
+                                 alt="PlayStation VR2" 
+                                 class="product-image-main"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="vr-headset-design ps-style fallback-design" style="display: none;">
+                                <div class="vr-lens-left"></div>
+                                <div class="vr-lens-right"></div>
+                                <div class="vr-strap"></div>
+                                <div class="vr-frame"></div>
+                                <div class="ps-lights"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Headsets, PS</span>
+                        <h3 class="product-name">PlayStation VR2</h3>
+                        <div class="product-price">
+                            <span class="current-price">US$ 399.99</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card featured" data-product="oculus">
+                    <div class="product-image">
+                        <div class="product-img oculus-headset">
+                            <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=400&h=400&fit=crop&crop=center&q=80" 
+                                 alt="Meta Quest 3" 
+                                 class="product-image-main"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="vr-headset-design oculus-style fallback-design" style="display: none;">
+                                <div class="vr-lens-left"></div>
+                                <div class="vr-lens-right"></div>
+                                <div class="vr-strap"></div>
+                                <div class="vr-frame"></div>
+                                <div class="oculus-logo"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Headsets, Meta</span>
+                        <h3 class="product-name">Meta Quest 3</h3>
+                        <div class="product-price">
+                            <span class="current-price sale">US$ 349.99</span>
+                            <span class="original-price">US$ 419.99</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VR Controllers Section -->
+    <section class="controllers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">VR Controllers</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Precision control for immersive experiences</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-product="touch-controllers">
+                    <div class="product-image">
+                        <div class="product-tag new">New</div>
+                            <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&h=400&fit=crop&crop=center&q=80" 
+                                 alt="Touch Controllers" 
+                                 class="product-img"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="controller-design touch-controller" style="display: none;">
+                            <div class="controller-body"></div>
+                            <div class="controller-grip-left"></div>
+                            <div class="controller-grip-right"></div>
+                            <div class="controller-button"></div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Controllers, Meta</span>
+                        <h3 class="product-name">Touch Controllers</h3>
+                        <div class="product-price">
+                            <span class="current-price">US$ 149.99</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="sense-controllers">
+                    <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&q=80" 
+                                 alt="Sense Controllers" 
+                                 class="product-img"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="controller-design sense-controller" style="display: none;">
+                            <div class="controller-body ps-style"></div>
+                            <div class="controller-grip-left"></div>
+                            <div class="controller-grip-right"></div>
+                            <div class="controller-button ps-button"></div>
+                            <div class="ps-lights"></div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Controllers, PS</span>
+                        <h3 class="product-name">Sense Controllers</h3>
+                        <div class="product-price">
+                            <span class="current-price">US$ 199.99</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="index-controllers">
+                    <div class="product-image">
+                        <div class="product-tag sale">Sale</div>
+                        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=400&h=400&fit=crop&crop=center&q=80" 
+                             alt="Index Controllers" 
+                             class="product-img"
+                             loading="lazy"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="controller-design index-controller" style="display: none;">
+                            <div class="controller-body valve-style"></div>
+                            <div class="controller-grip-left"></div>
+                            <div class="controller-grip-right"></div>
+                            <div class="controller-button valve-button"></div>
+                            <div class="finger-tracking"></div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Controllers, Valve</span>
+                        <h3 class="product-name">Index Controllers</h3>
+                        <div class="product-price">
+                            <span class="current-price sale">US$ 279.99</span>
+                            <span class="original-price">US$ 329.99</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VR Accessories Section -->
+    <section class="accessories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">VR Accessories</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Enhance your VR experience with premium accessories</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-product="vr-stand">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=300&h=300&fit=crop&crop=center" alt="VR Stand" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories, Storage</span>
+                        <h3 class="product-name">VR Stand & Charger</h3>
+                        <div class="product-price">
+                            <span class="current-price">US$ 79.99</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="vr-mat">
+                    <div class="product-image">
+                        <div class="product-tag new">New</div>
+                        <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300&h=300&fit=crop&crop=center" alt="VR Play Mat" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories, Safety</span>
+                        <h3 class="product-name">VR Play Mat</h3>
+                        <div class="product-price">
+                            <span class="current-price">US$ 49.99</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="vr-lens">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=400&h=400&fit=crop&crop=center&q=80" 
+                             alt="VR Lens Protector" 
+                             class="product-img"
+                             loading="lazy"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="lens-protector-design" style="display: none;">
+                            <div class="lens-protector-frame"></div>
+                            <div class="lens-protector-lens"></div>
+                            <div class="lens-protector-coating"></div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories, Protection</span>
+                        <h3 class="product-name">Lens Protector Set</h3>
+                        <div class="product-price">
+                            <span class="current-price">US$ 29.99</span>
+                        </div>
+                        <button class="add-to-bag-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VR Experience Showcase -->
+    <section class="vr-showcase">
+        <div class="container">
+            <div class="showcase-content">
+                <div class="showcase-text">
+                    <h2 class="showcase-title">Experience the Future</h2>
+                    <p class="showcase-description">
+                        Step into immersive worlds with our cutting-edge VR technology. 
+                        From gaming to productivity, discover endless possibilities.
+                    </p>
+                    <div class="showcase-features">
+                        <div class="feature-item">
+                            <i class="fas fa-eye"></i>
+                            <span>4K Resolution</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-headphones"></i>
+                            <span>3D Audio</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-hand-paper"></i>
+                            <span>Hand Tracking</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-wifi"></i>
+                            <span>Wireless Freedom</span>
+                        </div>
+                    </div>
+                    <button class="cta-button">
+                        <span>EXPLORE VR</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="showcase-visual">
+                    <div class="vr-demo">
+                        <div class="demo-screen">
+                            <div class="demo-content">
+                                <div class="demo-world"></div>
+                                <div class="demo-objects">
+                                    <div class="object object-1"></div>
+                                    <div class="object object-2"></div>
+                                    <div class="object object-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "Amazing VR experience! The Apple Vision Pro exceeded all my expectations. 
+                        The clarity and comfort are incredible."
+                    </p>
+                    <div class="review-author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face&q=80" 
+                             alt="John Smith" 
+                             class="author-avatar"
+                             loading="lazy"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM4YjVjZjYiLz4KPHN2ZyB4PSIxNSIgeT0iMTUiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTIgMTRDOC42ODYyOSAxNCA2IDE2LjY4NjMgNiAyMEgxOEMxOCAxNi42ODYzIDE1LjMxMzcgMTQgMTIgMTRaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+';">
+                        <div class="author-info">
+                            <h4>John Smith</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "The PlayStation VR2 is a game-changer! The haptic feedback and eye tracking 
+                        make every game feel incredibly immersive."
+                    </p>
+                    <div class="review-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face&q=80" 
+                             alt="Sarah Johnson" 
+                             class="author-avatar"
+                             loading="lazy"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM4YjVjZjYiLz4KPHN2ZyB4PSIxNSIgeT0iMTUiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTIgMTRDOC42ODYyOSAxNCA2IDE2LjY4NjMgNiAyMEgxOEMxOCAxNi42ODYzIDE1LjMxMzcgMTQgMTIgMTRaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+';">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">
+                        "Meta Quest 3 offers the best value for money. Wireless freedom and 
+                        excellent hand tracking make it perfect for both gaming and productivity."
+                    </p>
+                    <div class="review-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&q=80" 
+                             alt="Mike Chen" 
+                             class="author-avatar"
+                             loading="lazy"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM4YjVjZjYiLz4KPHN2ZyB4PSIxNSIgeT0iMTUiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTIgMTRDOC42ODYyOSAxNCA2IDE2LjY4NjMgNiAyMEgxOEMxOCAxNi42ODYzIDE1LjMxMzcgMTQgMTIgMTRaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+';">
+                        <div class="author-info">
+                            <h4>Mike Chen</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Newsletter Signup</h2>
+                <p class="newsletter-subtitle">Subscribe now and don't miss a single deal!</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="input-group">
+                        <input type="email" id="emailInput" placeholder="Your email..." required>
+                        <button type="submit" class="subscribe-btn">
+                            <span>SUBSCRIBE</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">VR Headsets</a></li>
+                        <li><a href="#">VR Controllers</a></li>
+                        <li><a href="#">VR Accessories</a></li>
+                        <li><a href="#">VR Games</a></li>
+                        <li><a href="#">VR Software</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Awards</a></li>
+                        <li><a href="#">Stores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Social Media</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> Linkedin</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Delivery & Returns</a></li>
+                        <li><a href="#">Finance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" style="display: none; position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; background: var(--gradient-primary); border: none; border-radius: 50%; color: white; font-size: 1.2rem; cursor: pointer; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
